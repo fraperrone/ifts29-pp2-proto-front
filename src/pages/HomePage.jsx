@@ -4,13 +4,13 @@ import NavbarComponent from '../components/NavbarComponent'
 import { BrowserRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 
-const Home = () => {
+const HomePage = () => {
   return (
-    <Container className="mt-5">
+    <Container className="m-5 text-center">
       <h1>Bienvenido a SePrise</h1>
       <p>Tu clínica de confianza para el cuidado de tu salud</p>
     </Container>
   )
 }
 
-export default Home
+export default HomePage

@@ -5,7 +5,7 @@ import NavbarComponent from '../components/NavbarComponent'
 import { Container } from 'react-bootstrap'
 const MainLayout = () => {
   return (
-    <Container fluid>
+    <Container fluid className="p-0">
       <NavbarComponent />
       <Container>
         <Outlet />

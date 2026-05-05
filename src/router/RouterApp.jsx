@@ -1,10 +1,11 @@
 // generamos el componente RouterApp para manejar las rutas de la aplicacion
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from '../pages/Home'
 import Login from '../components/Login'
 import MainLayout from '../layout/MainLayout'
 import ProtectedRoute from '../components/ProtectedRoute'
+import HomePage from '../pages/HomePage'
+import EstudiosPage from '../pages/EstudiosPage'
 
 // generamos rutas protegias y de logueo
 const RouterApp = () => {
@@ -22,7 +23,8 @@ const RouterApp = () => {
             </ProtectedRoute>
           }
         >
-          <Route path="/" element={<Home />} />
+          <Route path="/estudios" element={<EstudiosPage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
       </Routes>
     </Router>

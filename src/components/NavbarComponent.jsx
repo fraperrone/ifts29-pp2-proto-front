@@ -14,15 +14,14 @@ const NavbarComponent = () => {
 
   return (
     // generamos navbar con bootstrap
-     <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="mb-5">
+     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">MiPortfolio</Navbar.Brand>
+        <Navbar.Brand href="/">Clinica SePrice</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/">Inicio</Nav.Link>
-            <Nav.Link href="/about">Sobre mí</Nav.Link>
-            <Nav.Link href="/contact">Contacto</Nav.Link>
+            <Nav.Link href="/estudios">Estudios de Laboratorio</Nav.Link>
+            <Nav.Link href="/consultorios" disabled>Consultorios Externos (no disponible)</Nav.Link>
             <Nav.Link onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
           </Nav>
         </Navbar.Collapse>
