@@ -1,15 +1,16 @@
 // generamos el componente MainLayout para manejar el layout de la aplicacion
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Navbar from '../components/Navbar'
+import NavbarComponent from '../components/NavbarComponent'
+import { Container } from 'react-bootstrap'
 const MainLayout = () => {
   return (
-    <div>
-      <Navbar />
-      <div className="container">
+    <Container fluid>
+      <NavbarComponent />
+      <Container>
         <Outlet />
-      </div>
-    </div>
+      </Container>
+    </Container>
   )
 }
 export default MainLayout
