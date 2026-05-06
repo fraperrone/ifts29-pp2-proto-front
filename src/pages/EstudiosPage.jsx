@@ -5,8 +5,9 @@ import { Container } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 const EstudiosPage = () => {
   return (
-    <Container className="m-5">
+    <Container className="m-5 p-5 bg-light rounded shadow ">
       <h1>Estudios de Laboratorio</h1>
+      <h2>Menu principal</h2>
       {/* menu principal botones - separado en secciones */}
       {/* seccion turno */}
       {/* Asignar turno a paciente
@@ -42,6 +43,55 @@ const EstudiosPage = () => {
         </Card.Body>
       </Card>
 
+
+      {/* otro card
+      3. Estudios
+        Registrar realización del estudio
+        Registrar resultado del estudio
+        Asociar insumos a estudio
+      */}
+      <Card className='my-5'>
+        <Card.Header >Estudios</Card.Header>
+        <Card.Body>
+          <button className="btn btn-primary m-2">Registrar realización del estudio</button>
+          <button className="btn btn-secondary m-2">Registrar resultado del estudio</button>
+          <button className="btn btn-info m-2">Asociar insumos a estudio</button>
+        </Card.Body>
+
+      </Card>
+
+      {/* 4. Historia Clínica
+        Registrar información clínica
+        Consultar historia clínica */}
+
+      <Card className='my-5'>
+        <Card.Header >Historia Clínica</Card.Header>
+        <Card.Body>
+          <button className="btn btn-primary m-2">Registrar información clínica</button>
+          <button className="btn btn-secondary m-2">Consultar historia clínica</button>
+        </Card.Body>
+      </Card>
+
+      {/* 5. Pagos
+      Registrar pago
+      */}
+      <Card className='my-5'>
+        <Card.Header >Pagos</Card.Header>
+        <Card.Body>
+          <button className="btn btn-primary m-2">Registrar pago</button>
+        </Card.Body>
+      </Card>
+
+      {/* 
+      6. Insumos
+        Controlar stock de insumos
+       */}
+      <Card className='my-5'>
+        <Card.Header >Insumos</Card.Header>
+        <Card.Body>
+          <button className="btn btn-primary m-2">Controlar stock de insumos</button>
+        </Card.Body>
+      </Card>
 
     </Container>
   )
