@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 // importar message
 import MessageComponent from './MessageComponent'
 
-const Login = () => {
+const LoginComponent = () => {
   //usamos navigate
   //genemaos los use state del formulario - dejamos valores predeterminados
   const [email, setEmail] = React.useState('admin@example.com')
@@ -35,7 +35,7 @@ const Login = () => {
     navigate('/')
   }
   return (
-    <div className="container mt-5 d-flex justify-content-center align-items-center flex-column">
+    <div className="container d-flex justify-content-center align-items-center flex-column">
       {/* hacemos el login con Card */}
 
       {/* hacemos un if si hay error de credencial se muestra el mensaje error de credenciales */}
@@ -90,4 +90,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginComponent
