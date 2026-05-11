@@ -8,6 +8,11 @@ const NavbarComponent = () => {
   const navigate = useNavigate()
 
   const cerrarSesion = () => {
+
+    //verficamos si el usuario esta logueado
+    if (!localStorage.getItem('token')) {
+      return
+    }
     localStorage.removeItem('token')
     navigate('/login')
   }

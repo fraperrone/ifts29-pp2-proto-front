@@ -4,11 +4,16 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
+
+// importar message
+import MessageComponent from './MessageComponent'
+
 const Login = () => {
   //usamos navigate
   //genemaos los use state del formulario - dejamos valores predeterminados
   const [email, setEmail] = React.useState('admin@example.com')
   const [password, setPassword] = React.useState('password')
+  const [message, setMessage] = React.useState('')
 
   const navigate = useNavigate()
   const handleSubmit = (e) => {
@@ -18,19 +23,26 @@ const Login = () => {
     if (email === 'admin@example.com' && password === 'password') {
       localStorage.setItem('token', '1234567890')
     } else {
-      alert('Credenciales incorrectas')
+      // creamos un message box
+      setMessage('Credenciales incorrectas')
       return
     }
 
-    // redirigimos a la pagina principal
-    // usamos navigate
+    
+    // limpiamos el mensaje de error
+    setMessage('')
 
     navigate('/')
-    // navigate('/')
   }
   return (
-    <div className="container mt-5 d-flex justify-content-center ">
+    <div className="container mt-5 d-flex justify-content-center align-items-center flex-column">
       {/* hacemos el login con Card */}
+
+      {/* hacemos un if si hay error de credencial se muestra el mensaje error de credenciales */}
+      {message && <MessageComponent message={message} type="danger" />}
+
+
+
       <div className="card mt-5">
         {/* agregamos imagen de la clinica en otra parte del card */}
         <div className="card-header">
@@ -71,6 +83,9 @@ const Login = () => {
           </form>
         </div>
       </div>
+
+      {/* probamos message */}
+      {/* <MessageComponent message="Credenciales incorrectas" type="danger" /> */}
     </div>
   )
 }
