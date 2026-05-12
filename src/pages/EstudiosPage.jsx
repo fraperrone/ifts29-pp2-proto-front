@@ -93,6 +93,14 @@ const EstudiosPage = () => {
         </Card.Body>
       </Card>
 
+      {/* hacemos card para registrar paciente */}
+      <Card className='my-5'>
+        <Card.Header >Registrar Paciente</Card.Header>
+        <Card.Body>
+          <button className="btn btn-primary m-2">Registrar paciente</button>
+        </Card.Body>
+      </Card>
+
     </Container>
   )
 }
