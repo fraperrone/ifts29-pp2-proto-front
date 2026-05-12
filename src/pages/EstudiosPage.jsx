@@ -19,6 +19,14 @@ const EstudiosPage = () => {
     navigate('/registrar-paciente')
   }
 
+  const irAAcreditarPaciente = () => {
+    navigate('/acreditacion-paciente')
+  }
+
+  const irAPagos = () => {
+    navigate('/pagos')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -48,7 +56,7 @@ const EstudiosPage = () => {
               <button className="btn btn-primary m-2" onClick={irARegistrarPaciente}>
                 Registrar paciente
               </button>
-              <button className="btn btn-secondary m-2">
+              <button className="btn btn-secondary m-2" onClick={irAAcreditarPaciente}>
                 Acreditar paciente
               </button>
               <button className="btn btn-info m-2">
@@ -80,7 +88,9 @@ const EstudiosPage = () => {
           <Card className="my-5">
             <Card.Header>Pagos</Card.Header>
             <Card.Body>
-              <button className="btn btn-primary m-2">Registrar pago</button>
+              <button className="btn btn-primary m-2" onClick={irAPagos}>
+                Registrar pago
+              </button>
             </Card.Body>
           </Card>
 
