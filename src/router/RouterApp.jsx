@@ -6,6 +6,7 @@ import ProtectedRoute from '../components/ProtectedRoute'
 import HomePage from '../pages/HomePage'
 import EstudiosPage from '../pages/EstudiosPage'
 import LoginPage from '../pages/LoginPage'
+import RegistrarPacientePage from '../pages/RegistrarPacientePage'
 
 // generamos rutas protegias y de logueo
 const RouterApp = () => {
@@ -25,6 +26,7 @@ const RouterApp = () => {
         >
           <Route path="/estudios" element={<EstudiosPage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/registrar-paciente" element={<RegistrarPacientePage />} />
         </Route>
       </Routes>
     </Router>

@@ -6,10 +6,18 @@ import { Card } from 'react-bootstrap'
 
 // importamos useState
 import { useState } from 'react'
+// importamos el useNavigate para navegar entre paginas
+import { useNavigate } from 'react-router-dom'
 
 const EstudiosPage = () => {
   // generamos el rol
   const [rol, setRol] = useState('administrativo') // por defecto administrativo, medico, superusuario
+  const navigate = useNavigate()
+
+  // ir a registrar paciente
+  const irARegistrarPaciente = () => {
+    navigate('/registrar-paciente')
+  }
 
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
@@ -37,7 +45,7 @@ const EstudiosPage = () => {
           <Card className="my-5">
             <Card.Header>Atención</Card.Header>
             <Card.Body>
-              <button className="btn btn-primary m-2">
+              <button className="btn btn-primary m-2" onClick={irARegistrarPaciente}>
                 Registrar paciente
               </button>
               <button className="btn btn-secondary m-2">
