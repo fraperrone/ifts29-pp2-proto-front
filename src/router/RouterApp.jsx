@@ -11,6 +11,8 @@ import AcreditarPaciente from '../pages/AcreditarPaciente'
 import PagosPage from '../pages/PagosPage'
 import InsumosPage from '../pages/InsumosPage'
 import EstadoPacientePage from '../pages/EstadoPacientePage'
+import AsignarTurnoPage from '../pages/AsignarTurnoPage'
+import CancelarTurnoPage from '../pages/CancelarTurnoPage'
 // generamos rutas protegias y de logueo
 const RouterApp = () => {
   return (
@@ -34,6 +36,8 @@ const RouterApp = () => {
           <Route path="/pagos" element={<PagosPage />} />
           <Route path="/insumos" element={<InsumosPage />} />
           <Route path="/estado-paciente" element={<EstadoPacientePage />} />
+          <Route path='/asignar-turno' element={<AsignarTurnoPage />} />
+          <Route path='/cancelar-turno' element={<CancelarTurnoPage />} />
         </Route>
       </Routes>
     </Router>

@@ -35,6 +35,14 @@ const EstudiosPage = () => {
     navigate('/estado-paciente')
   }
 
+  const irATurnos = () => {
+    navigate('/asignar-turno')
+  }
+
+  const irACancelarTurno = () =>{
+    navigate('/cancelar-turno')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -79,11 +87,10 @@ const EstudiosPage = () => {
           <Card className="my-5">
             <Card.Header>Turnos</Card.Header>
             <Card.Body>
-              <button className="btn btn-primary m-2">
+              <button className="btn btn-primary m-2" onClick={irATurnos}>
                 Asignar turno a paciente
               </button>
-              <button className="btn btn-secondary m-2">Cancelar turno</button>
-              <button className="btn btn-info m-2">Consultar turnos</button>
+              <button className="btn btn-secondary m-2" onClick={irACancelarTurno}>Cancelar/ Consultar turno</button>
               <button className="btn btn-warning m-2">
                 Configurar agenda de turnos
               </button>
