@@ -31,6 +31,10 @@ const EstudiosPage = () => {
     navigate('/insumos')
   }
 
+  const irAEstadoPaciente = () => {
+    navigate('/estado-paciente')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -66,7 +70,7 @@ const EstudiosPage = () => {
               {/* <button className="btn btn-info m-2">
                 Ingresar paciente a sala de espera
               </button> */}
-              <button className="btn btn-warning m-2">
+              <button className="btn btn-warning m-2" onClick={irAEstadoPaciente}>
                 Actualizar estado del paciente
               </button>
             </Card.Body>
