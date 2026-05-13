@@ -7,11 +7,15 @@ import FormularioAcreditarPaciente from '../components/FormularioAcreditarPacien
 import { Container } from 'react-bootstrap'
 // importamos boton cancelar
 import BotonCancelar from '../components/BotonCancelar'
+
+import ModalConfirmacionDatos from '../components/ModalConfirmacionDatos'
 const AcreditarPaciente = () => {
   return (
     <Container>
         <FormularioAcreditarPaciente />
         <BotonCancelar />
+
+        {/* agregamos modal de confirmacion */}
     </Container>
   )
 }

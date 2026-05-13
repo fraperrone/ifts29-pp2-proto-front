@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 
 import FormularioPago from './FormularioPago'
 import { useNavigate } from 'react-router-dom'
+import ModalConfirmacionDatos from './ModalConfirmacionDatos'
 
 const FormularioAcreditarPaciente = () => {
     // generamos el estado del formulario
@@ -74,7 +75,12 @@ const FormularioAcreditarPaciente = () => {
                 </Modal.Footer>
             </Modal>
 
-            
+            {/* agregamos modal de confirmacion de datos */}
+            <ModalConfirmacionDatos
+                show={showFormularioPago}
+                handleClose={() => setShowFormularioPago(false)}
+                datos={formData}
+            />
 
 
         </Container>
