@@ -27,6 +27,10 @@ const EstudiosPage = () => {
     navigate('/pagos')
   }
 
+  const irAInsumos = () => {
+    navigate('/insumos')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -101,7 +105,7 @@ const EstudiosPage = () => {
           <Card className="my-5">
             <Card.Header>Insumos</Card.Header>
             <Card.Body>
-              <button className="btn btn-primary m-2">
+              <button className="btn btn-primary m-2" onClick={irAInsumos}>
                 Controlar stock de insumos
               </button>
             </Card.Body>
