@@ -63,9 +63,9 @@ const EstudiosPage = () => {
               <button className="btn btn-secondary m-2" onClick={irAAcreditarPaciente}>
                 Acreditar paciente
               </button>
-              <button className="btn btn-info m-2">
+              {/* <button className="btn btn-info m-2">
                 Ingresar paciente a sala de espera
-              </button>
+              </button> */}
               <button className="btn btn-warning m-2">
                 Actualizar estado del paciente
               </button>
