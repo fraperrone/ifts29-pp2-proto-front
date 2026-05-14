@@ -21,7 +21,7 @@ const NavbarComponent = () => {
     // generamos navbar con bootstrap
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/">
           <img
             src="imagenes/logo.png"   // ruta de tu logo
             alt="Mi Logo"
