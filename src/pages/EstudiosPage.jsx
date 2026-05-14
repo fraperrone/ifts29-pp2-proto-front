@@ -43,6 +43,14 @@ const EstudiosPage = () => {
     navigate('/cancelar-turno')
   }
 
+  const irAConfigurarAgenda = () => {
+    navigate('/configurar-agenda')
+  }
+
+  const irARealizacionEstudio = () => {
+    navigate('/realizacion-estudio')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -91,7 +99,7 @@ const EstudiosPage = () => {
                 Asignar turno a paciente
               </button>
               <button className="btn btn-secondary m-2" onClick={irACancelarTurno}>Cancelar/ Consultar turno</button>
-              <button className="btn btn-warning m-2">
+              <button className="btn btn-warning m-2" onClick={irAConfigurarAgenda}>
                 Configurar agenda de turnos
               </button>
             </Card.Body>
@@ -129,7 +137,7 @@ const EstudiosPage = () => {
           <Card className="my-5">
             <Card.Header>Estudios</Card.Header>
             <Card.Body>
-              <button className="btn btn-primary m-2">
+              <button className="btn btn-primary m-2" onClick={irARealizacionEstudio}>
                 Registrar realización del estudio
               </button>
               <button className="btn btn-secondary m-2">

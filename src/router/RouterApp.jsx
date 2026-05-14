@@ -13,6 +13,8 @@ import InsumosPage from '../pages/InsumosPage'
 import EstadoPacientePage from '../pages/EstadoPacientePage'
 import AsignarTurnoPage from '../pages/AsignarTurnoPage'
 import CancelarTurnoPage from '../pages/CancelarTurnoPage'
+import ConfigurarAgendaPage from '../pages/ConfigurarAgendaPage'
+import RealizacionEstudioPage from '../pages/estudios/RealizacionEstudioPage'
 // generamos rutas protegias y de logueo
 const RouterApp = () => {
   return (
@@ -38,6 +40,8 @@ const RouterApp = () => {
           <Route path="/estado-paciente" element={<EstadoPacientePage />} />
           <Route path='/asignar-turno' element={<AsignarTurnoPage />} />
           <Route path='/cancelar-turno' element={<CancelarTurnoPage />} />
+          <Route path='/configurar-agenda' element= {<ConfigurarAgendaPage/>} />
+          <Route path='/realizacion-estudio' element= {<RealizacionEstudioPage />} />
         </Route>
       </Routes>
     </Router>
