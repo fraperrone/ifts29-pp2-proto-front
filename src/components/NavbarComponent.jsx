@@ -19,9 +19,17 @@ const NavbarComponent = () => {
 
   return (
     // generamos navbar con bootstrap
-     <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Clinica SePrice</Navbar.Brand>
+        <Navbar.Brand href="/">
+          <img
+            src="imagenes/logo.png"   // ruta de tu logo
+            alt="Mi Logo"
+            width="40"
+            height="40"
+            className="d-inline-block align-top"
+          />{" "}
+          Clinica SePrice</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
