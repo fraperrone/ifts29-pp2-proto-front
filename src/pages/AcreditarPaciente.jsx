@@ -9,13 +9,25 @@ import { Container } from 'react-bootstrap'
 import BotonCancelar from '../components/BotonCancelar'
 
 import ModalConfirmacionDatos from '../components/ModalConfirmacionDatos'
-const AcreditarPaciente = () => {
-  return (
-    <Container>
-        <FormularioAcreditarPaciente />
-        <BotonCancelar />
 
-        {/* agregamos modal de confirmacion */}
+
+//IMPLEMENTAMOS NUEVO FORM
+import DynamicForm from '../components/DynamicForm'
+import pacienteModel from '../model/pacienteModel'
+
+
+const AcreditarPaciente = () => {
+  const handlePacienteSubmit = (data) => {
+    console.log("Paciente cargado:", data);
+    // acá podés enviar a Firestore, API, etc.
+  };
+
+  return (
+    <Container className=''>
+      <DynamicForm model={pacienteModel} onSubmit={handlePacienteSubmit} />
+      <BotonCancelar />
+
+      {/* agregamos modal de confirmacion */}
     </Container>
   )
 }

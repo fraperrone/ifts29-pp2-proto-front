@@ -1,7 +1,6 @@
 // formulario de acreditar paciente
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-import Paciente from '../model/pacienteDatos'
 import Modal from 'react-bootstrap/Modal'
 import Container from 'react-bootstrap/Container'
 
