@@ -2,18 +2,18 @@
 
 // genermaos pagina para acreditar paciente
 import React from 'react'
-import FormularioAcreditarPaciente from '../components/FormularioAcreditarPaciente'
+import FormularioAcreditarPaciente from '../../components/forms/FormularioAcreditarPaciente'
 
 import { Container } from 'react-bootstrap'
 // importamos boton cancelar
-import BotonCancelar from '../components/BotonCancelar'
+import BotonCancelar from '../../components/BotonCancelar'
 
-import ModalConfirmacionDatos from '../components/ModalConfirmacionDatos'
+import ModalConfirmacionDatos from '../../components/messages/ModalConfirmacionDatos'
 
 
 //IMPLEMENTAMOS NUEVO FORM
-import DynamicForm from '../components/DynamicForm'
-import pacienteModel from '../model/pacienteModel'
+import DynamicForm from '../../components/forms/DynamicForm'
+import pacienteModel from '../../model/pacienteModel'
 
 
 const AcreditarPaciente = () => {

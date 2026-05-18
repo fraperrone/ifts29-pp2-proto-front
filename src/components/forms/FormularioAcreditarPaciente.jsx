@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container'
 
 import FormularioPago from './FormularioPago'
 import { useNavigate } from 'react-router-dom'
-import ModalConfirmacionDatos from './ModalConfirmacionDatos'
+import ModalConfirmacionDatos from '../messages/ModalConfirmacionDatos'
 
 const FormularioAcreditarPaciente = () => {
     // generamos el estado del formulario

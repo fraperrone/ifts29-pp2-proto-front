@@ -1,7 +1,7 @@
 
 // generamos la pagina para gestion de insumos
 import React from 'react'
-import NavbarComponent from '../components/NavbarComponent'
+import NavbarComponent from '../../components/NavbarComponent'
 import { Container } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 // importamos useState
@@ -10,10 +10,11 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 // nuevmo formulario dinamico
-import DynamicForm from '../components/DynamicForm'
-import insumoModel from '../model/insumosModel'
-import InsumosController from '../components/InsumosController'
-import BotonCancelar from '../components/BotonCancelar'
+import DynamicForm from '../../components/forms/DynamicForm'
+import InsumosController from '../../components/InsumosController'
+import BotonCancelar from '../../components/BotonCancelar'
+
+import insumoModel from '../../model/insumosModel'
 const InsumosPage = () => {
   // generamos el rol
 

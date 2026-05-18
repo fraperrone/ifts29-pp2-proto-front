@@ -1,12 +1,12 @@
 
 // genermaos la pagina para registrar paciente
 import React from 'react'
-import FormularioRegistrarPaciente from '../components/FormularioRegistrarPaciente'
+import FormularioRegistrarPaciente from '../../components/forms/FormularioRegistrarPaciente'
 
 import { Container } from 'react-bootstrap'
 
 // importamos boton cancelar
-import BotonCancelar from '../components/BotonCancelar'
+import BotonCancelar from '../../components/BotonCancelar'
 
 const RegistrarPacientePage = () => {
   return (

@@ -2,7 +2,7 @@
 // genermaos el formulario
 import React, { useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
-import ModalConfirmacionDatos from './ModalConfirmacionDatos'
+import ModalConfirmacionDatos from '../messages/ModalConfirmacionDatos'
 
 const FormularioRegistrarPaciente = () => {
     // generamos el estado del formulario

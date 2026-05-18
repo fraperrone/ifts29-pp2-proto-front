@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 // importar message
-import MessageComponent from './MessageComponent'
+import MessageComponent from '../messages/MessageComponent'
 
 const LoginComponent = () => {
   //usamos navigate

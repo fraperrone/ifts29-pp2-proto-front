@@ -1,7 +1,7 @@
 // registramos resultado de estudio 
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import DynamicForm from "../../components/DynamicForm";
+import DynamicForm from "../../components/forms/DynamicForm";
 import resultadoEstudioModel from "../../model/resultadoEstudioModel";
 function ResultadoEstudioPage() {
   const handleResultadoSubmit = (data) => {

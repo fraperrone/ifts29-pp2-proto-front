@@ -2,7 +2,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Form, Button } from 'react-bootstrap'
-import BotonCancelar from './BotonCancelar'
+import BotonCancelar from '../BotonCancelar'
 import { useState } from 'react'
 
 
