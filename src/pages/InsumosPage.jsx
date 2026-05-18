@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom'
 import DynamicForm from '../components/DynamicForm'
 import insumoModel from '../model/insumosModel'
 import InsumosController from '../components/InsumosController'
+import BotonCancelar from '../components/BotonCancelar'
 const InsumosPage = () => {
   // generamos el rol
 
@@ -25,6 +26,7 @@ const InsumosPage = () => {
       <h1>Gestión de Insumos</h1>
         <InsumosController />
         <DynamicForm model={insumoModel} onSubmit={handleSubmit}></DynamicForm>
+        <BotonCancelar></BotonCancelar>
     </Container>
   )
 }

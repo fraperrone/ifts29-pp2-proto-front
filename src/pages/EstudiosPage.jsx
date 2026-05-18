@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom'
 
 const EstudiosPage = () => {
   // generamos el rol
-  const [rol, setRol] = useState('administrativo') // por defecto administrativo, medico, superusuario
+  const [rol, setRol] = useState('superusuario') // por defecto administrativo, medico, superusuario
   const navigate = useNavigate()
 
   // ir a registrar paciente
@@ -49,6 +49,10 @@ const EstudiosPage = () => {
 
   const irARealizacionEstudio = () => {
     navigate('/realizacion-estudio')
+  }
+
+  const irARegistrarResultado = () =>{
+    navigate('/registrar-resultado')
   }
 
   return (
@@ -140,7 +144,7 @@ const EstudiosPage = () => {
               <button className="btn btn-primary m-2" onClick={irARealizacionEstudio}>
                 Registrar realización del estudio
               </button>
-              <button className="btn btn-secondary m-2">
+              <button className="btn btn-secondary m-2" onClick={irARegistrarResultado}>
                 Registrar resultado del estudio
               </button>
               <button className="btn btn-info m-2">
