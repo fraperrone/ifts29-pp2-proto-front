@@ -6,14 +6,16 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 
 const NavbarComponent = () => {
   const navigate = useNavigate()
+  const rol = localStorage.getItem('rol')
 
   const cerrarSesion = () => {
 
     //verficamos si el usuario esta logueado
-    if (!localStorage.getItem('token')) {
+    if (!localStorage.getItem('token') && !localStorage.getItem('rol')) {
       return
     }
     localStorage.removeItem('token')
+    localStorage.removeItem('rol')
     navigate('/login')
   }
 
@@ -37,6 +39,12 @@ const NavbarComponent = () => {
             <Nav.Link href="/consultorios" disabled>Consultorios Externos (no disponible)</Nav.Link>
             <Nav.Link onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
           </Nav>
+          {/* Mostrar rol actual */}
+          {rol && (
+            <span className="text-light ms-3">
+              Rol: <strong>{rol}</strong>
+            </span>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -11,8 +11,11 @@ import { useNavigate } from 'react-router-dom'
 
 const EstudiosPage = () => {
   // generamos el rol
-  const [rol, setRol] = useState('superusuario') // por defecto administrativo, medico, superusuario
+  //const [rol, setRol] = useState('superusuario') // por defecto administrativo, medico, superusuario
+  
+  const rol = localStorage.getItem('rol')
   const navigate = useNavigate()
+
 
   // ir a registrar paciente
   const irARegistrarPaciente = () => {
@@ -61,7 +64,7 @@ const EstudiosPage = () => {
       <h2>Menu principal</h2>
 
       {/* agregamos bloque para seleccionar rol */}
-      <div className="mb-3">
+      {/* <div className="mb-3">
         <label htmlFor="rol" className="form-label">Seleccionar rol:</label>
         <select
           className="form-select"
@@ -73,10 +76,10 @@ const EstudiosPage = () => {
           <option value="medico">Médico</option>
           <option value="superusuario">Superusuario</option>
         </select>
-      </div>
+      </div> */}
 
       {/* generamos bloque para administrativo para las tarjetas */}
-      {(rol === 'administrativo' || rol === 'superusuario') && (
+      {(rol === 'admin' || rol === 'superusuario') && (
         <div>
           <Card className="my-5">
             <Card.Header>Atención</Card.Header>

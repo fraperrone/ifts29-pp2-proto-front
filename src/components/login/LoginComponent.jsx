@@ -16,24 +16,31 @@ const LoginComponent = () => {
   const [message, setMessage] = React.useState('')
 
   const navigate = useNavigate()
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // aqui iria la logica de autenticacion
 
-    if (email === 'admin@example.com' && password === 'password') {
-      localStorage.setItem('token', '1234567890')
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // aquí iría la lógica de autenticación real
+    if (email === "admin@example.com" && password === "password") {
+      localStorage.setItem("token", "1234567890");
+      localStorage.setItem("rol", "admin");
+    } else if (email === "medico@example.com" && password === "password") {
+      localStorage.setItem("token", "0987654321");
+      localStorage.setItem("rol", "medico");
     } else {
-      // creamos un message box
-      setMessage('Credenciales incorrectas')
-      return
+      // credenciales incorrectas
+      setMessage("Credenciales incorrectas");
+      return;
     }
 
-    
     // limpiamos el mensaje de error
-    setMessage('')
+    setMessage("");
 
-    navigate('/')
-  }
+    // redirigimos al home
+    navigate("/");
+  };
+
+
   return (
     <div className="container d-flex justify-content-center align-items-center flex-column">
       {/* hacemos el login con Card */}
