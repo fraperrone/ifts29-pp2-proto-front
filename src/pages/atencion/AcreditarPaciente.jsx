@@ -6,7 +6,7 @@ import FormularioAcreditarPaciente from '../../components/forms/FormularioAcredi
 
 import { Container } from 'react-bootstrap'
 // importamos boton cancelar
-import BotonCancelar from '../../components/BotonCancelar'
+import BotonCancelar from '../../components/buttons/BotonCancelar'
 
 import ModalConfirmacionDatos from '../../components/messages/ModalConfirmacionDatos'
 

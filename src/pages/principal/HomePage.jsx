@@ -1,10 +1,9 @@
 // generamos pagina principal
 import React from 'react'
-import NavbarComponent from '../components/NavbarComponent'
+import NavbarComponent from '../../components/controllers/NavbarComponent'
 import { BrowserRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import EstudiosPage from './EstudiosPage'
-
 // importamos nav
 import { useNavigate } from 'react-router-dom'
 

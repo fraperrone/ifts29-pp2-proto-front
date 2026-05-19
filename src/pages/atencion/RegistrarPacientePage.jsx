@@ -6,7 +6,7 @@ import FormularioRegistrarPaciente from '../../components/forms/FormularioRegist
 import { Container } from 'react-bootstrap'
 
 // importamos boton cancelar
-import BotonCancelar from '../../components/BotonCancelar'
+import BotonCancelar from '../../components/buttons/BotonCancelar'
 
 const RegistrarPacientePage = () => {
   return (

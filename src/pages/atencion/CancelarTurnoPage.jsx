@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Container, Form, Button, Table, Modal } from "react-bootstrap";
-import BotonCancelar from "../../components/BotonCancelar";
+import BotonCancelar from "../../components/buttons/BotonCancelar";
 
 const CancelarTurnoPage = ({ obtenerTurnosPorDni, eliminarTurno }) => {
   const [dni, setDni] = useState("");

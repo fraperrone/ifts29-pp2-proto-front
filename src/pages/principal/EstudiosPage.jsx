@@ -1,6 +1,6 @@
 // generamos la pagina de estudios de laboratorio
 import React from 'react'
-import NavbarComponent from '../components/NavbarComponent'
+import NavbarComponent from '../../components/controllers/NavbarComponent'
 import { Container } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
 
