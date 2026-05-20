@@ -7,10 +7,10 @@ import ModalConfirmacionDatos from '../messages/ModalConfirmacionDatos'
 const FormularioRegistrarPaciente = () => {
     // generamos el estado del formulario
     const [formData, setFormData] = useState({
-        nombre: '',
-        apellido: '',
-        dni: '',
-        fechaNacimiento: ''
+        nombre: 'Franco',
+        apellido: 'Perrone Rey',
+        dni: '36400855',
+        fechaNacimiento: '1991-08-21'
     })
 
     const [showConfirmacionModal, setShowConfirmacionModal] = useState(false)
@@ -62,6 +62,7 @@ const FormularioRegistrarPaciente = () => {
                 <Button variant="primary" type="submit" onClick={(e) => {
                     e.preventDefault()
                     setShowConfirmacionModal(true)
+                    console.log(formData)
                 }}>
                     Registrar Paciente
                 </Button>
@@ -71,6 +72,7 @@ const FormularioRegistrarPaciente = () => {
                 show={showConfirmacionModal}
                 handleClose={() => setShowConfirmacionModal(false)}
                 datos={formData}
+                
             />
 
         </Container>

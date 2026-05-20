@@ -3,7 +3,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const BotonCancelar = () => {
+const BotonCancelar = ( {message}) => {
   const navigate = useNavigate()
   const irAlMenuPrincipal = () => {
     navigate('/estudios')
@@ -11,7 +11,7 @@ const BotonCancelar = () => {
 
   return (
     <button className="btn btn-secondary" onClick={irAlMenuPrincipal}>
-      Cancelar
+      {message}
     </button>
   )
 }

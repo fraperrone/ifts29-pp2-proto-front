@@ -12,7 +12,7 @@ const RegistrarPacientePage = () => {
   return (
     <Container>
         <FormularioRegistrarPaciente />
-        <BotonCancelar />
+        <BotonCancelar message={"Cancelar"}/>
     </Container>
   )
 }
