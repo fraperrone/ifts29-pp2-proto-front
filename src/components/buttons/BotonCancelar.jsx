@@ -3,7 +3,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const BotonCancelar = ( {message}) => {
+const BotonCancelar = ( {message="Volver"}) => {
   const navigate = useNavigate()
   const irAlMenuPrincipal = () => {
     navigate('/estudios')
