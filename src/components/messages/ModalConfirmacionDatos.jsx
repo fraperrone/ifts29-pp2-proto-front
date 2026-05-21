@@ -3,13 +3,20 @@ import React from 'react'
 import { Modal, Button } from 'react-bootstrap'
 import { useState } from 'react'
 
-import MessageModal
-    from './MessageModal'
+import MessageModal from './MessageModal'
+
+// importamos spinner
+import LoadingSpinner from '../spinner/LoadingSpinner'
+
 const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
 
     const [showModal, setShowModal] = useState(false);
     const [status, setStatus] = useState("success"); // "success" | "error" | "cancel"
     const [message, setMessage] = useState("");
+
+    // configuramos spinner
+    const [loading, setLoading] = useState(false)
+    const [modalGeneric, setModalGeneric] = useState(true)
 
     const fakeRequest = (shouldSucceed = true) => {
         return new Promise((resolve, reject) => {
@@ -24,8 +31,9 @@ const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
     };
 
     const handleModal = async () => {
-
         try {
+            setLoading(true)
+
             const result = await fakeRequest(false)
             setStatus(true); // o "error" / "cancel"
             setMessage("Operación exitosa");
@@ -37,6 +45,7 @@ const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
             setShowModal(true)
         } finally {
             handleClose();
+            setLoading(false)
 
         }
     };
@@ -44,9 +53,12 @@ const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
     return (
         <>
             <Modal show={show} onHide={handleClose}>
+
+
                 <Modal.Header closeButton>
                     <Modal.Title>Confirmación de datos</Modal.Title>
                 </Modal.Header>
+
                 <Modal.Body>
                     {/* modal para confirmar datos genericos */}
                     <p>¿Confirma que los siguientes datos son correctos?</p>
@@ -59,14 +71,31 @@ const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancelar
-                    </Button>
-                    <Button variant="primary" onClick={handleModal}>
-                        Confirmar
-                    </Button>
+
+
+                    {/* actualizamos spinner */}
+                    {loading ? (
+
+                        <LoadingSpinner />
+
+                    ) : (
+                        <>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Cancelar
+                            </Button>
+                            <Button variant="primary" onClick={handleModal}>
+                                Confirmar
+                            </Button>
+                        </>
+
+                    )
+
+                    }
                 </Modal.Footer>
+
+
             </Modal>
+
             <MessageModal
                 show={showModal}
                 handleClose={() => setShowModal(false)}
@@ -74,6 +103,8 @@ const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
                 message={message}
 
             />
+
+
         </>
     )
 }

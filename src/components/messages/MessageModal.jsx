@@ -1,8 +1,11 @@
 import React from "react";
 import { Modal, Button, Alert } from "react-bootstrap";
+import LoadingSpinner from "../spinner/LoadingSpinner";
 
 function MessageModal({ show, handleClose, success, message }) {
   return (
+
+
     <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>
         <Modal.Title>
@@ -19,6 +22,7 @@ function MessageModal({ show, handleClose, success, message }) {
           Cerrar
         </Button>
       </Modal.Footer>
+
     </Modal>
   );
 }

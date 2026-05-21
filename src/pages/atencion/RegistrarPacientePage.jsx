@@ -8,11 +8,18 @@ import { Container } from 'react-bootstrap'
 // importamos boton cancelar
 import BotonCancelar from '../../components/buttons/BotonCancelar'
 
+//importar prueba spinner
+import LoadingSpinner from '../../components/spinner/LoadingSpinner'
+
 const RegistrarPacientePage = () => {
   return (
     <Container>
         <FormularioRegistrarPaciente />
         <BotonCancelar message={"Cancelar"}/>
+
+
+        
+
     </Container>
   )
 }
