@@ -15,6 +15,7 @@ function DynamicForm({ model, onSubmit }) {
                     <Form.Group className="mb-3" controlId={field} key={field}>
                         <Form.Label>{config.label}</Form.Label>
                         <Form.Control
+                            defaultValue={config.value}
                             type={config.type}
                             name={field}
                             maxLength={config.maxLength}
@@ -26,7 +27,7 @@ function DynamicForm({ model, onSubmit }) {
                     </Form.Group>
                 ))}
                 <Button variant="primary" type="submit">
-                    Guardar
+                    Aceptar
                 </Button>
             </Form>
         </Container>

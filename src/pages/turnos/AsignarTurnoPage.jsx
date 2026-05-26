@@ -7,23 +7,37 @@ const AsignarTurnoPage = () => {
   const [paciente, setPaciente] = useState("");
   const [fecha, setFecha] = useState("");
   const [estudio, setEstudio] = useState("");
-  const [turnos, setTurnos] = useState([]);
+  const [turnos, setTurnos] = useState([
+    { id: 1, paciente: "Juan Pérez", fecha: "2026-05-21", hora: "09:00", estudio: "Radiografía" },
+    { id: 2, paciente: "María Gómez", fecha: "2026-05-22", hora: "11:30", estudio: "Ecografía" },
+    { id: 3, paciente: "Carlos López", fecha: "2026-05-23", hora: "15:00", estudio: "Resonancia" },
+
+  ]);
   const [showConfirm, setShowConfirm] = useState(false);
 
-  const estudiosDisponibles = ["Laboratorio", "Radiografía", "Ecografía", "Resonancia"];
+  const estudiosDisponibles = ["Radiografía", "Ecografía", "Resonancia"];
 
   const handleAsignar = () => {
     setShowConfirm(true);
   };
 
   const confirmarTurno = () => {
-    const nuevoTurno = { paciente, fecha, estudio };
+    const nuevoTurno = { paciente, fechaHora, estudio };
     setTurnos([...turnos, nuevoTurno]);
     setShowConfirm(false);
     setPaciente("");
     setFecha("");
     setEstudio("");
   };
+
+  const [fechaHora, setFechaHora] = useState("2026-05-21T09:00");
+
+  const opciones = [
+    { value: "2026-05-21T09:00", label: "21/05/2026 - 09:00" },
+    { value: "2026-05-21T11:30", label: "21/05/2026 - 11:30" },
+    { value: "2026-05-22T15:00", label: "22/05/2026 - 15:00" },
+    { value: "2026-05-23T10:00", label: "23/05/2026 - 10:00" },
+  ];
 
   return (
     <Container className="my-4">
@@ -40,12 +54,17 @@ const AsignarTurnoPage = () => {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Fecha</Form.Label>
-          <Form.Control
-            type="date"
-            value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
-          />
+          <Form.Label>Seleccionar turno</Form.Label>
+          <Form.Select
+            value={fechaHora}
+            onChange={(e) => setFechaHora(e.target.value)}
+          >
+            {opciones.map((op, idx) => (
+              <option key={idx} value={op.value}>
+                {op.label}
+              </option>
+            ))}
+          </Form.Select>
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -78,9 +97,10 @@ const AsignarTurnoPage = () => {
         </thead>
         <tbody>
           {turnos.map((t, idx) => (
-            <tr key={idx}>
+            <tr key={t.id}>
               <td>{t.paciente}</td>
               <td>{t.fecha}</td>
+              <td>{t.hora}</td>
               <td>{t.estudio}</td>
             </tr>
           ))}
@@ -96,7 +116,7 @@ const AsignarTurnoPage = () => {
           <p>¿Confirma asignar el siguiente turno?</p>
           <ul>
             <li><strong>Paciente:</strong> {paciente}</li>
-            <li><strong>Fecha:</strong> {fecha}</li>
+            <li><strong>Fecha:</strong> {fechaHora}</li>
             <li><strong>Estudio:</strong> {estudio}</li>
           </ul>
         </Modal.Body>
