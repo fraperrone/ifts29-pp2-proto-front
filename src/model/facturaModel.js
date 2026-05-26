@@ -1,11 +1,4 @@
 const facturaModel = {
-  id_factura: {
-    label: "ID Factura",
-    type: "number",
-    maxLength: 10,
-    required: true,
-    description: "Identificador único de la factura (10 dígitos)",
-  },
   id_paciente: {
     label: "ID Paciente",
     type: "number",
@@ -13,23 +6,16 @@ const facturaModel = {
     required: true,
     description: "Paciente facturado (clave foránea > Paciente)",
   },
-  id_turno: {
-    label: "ID Turno",
-    type: "number",
-    maxLength: 8,
-    required: true,
-    description: "Turno facturado (clave foránea > Turno)",
-  },
   fecha: {
     label: "Fecha de emisión",
-    type: "date", // 👈 calendar picker nativo
+    type: "date",
     required: true,
     description: "Fecha de emisión de la factura (YYYY-MM-DD)",
   },
   monto: {
     label: "Monto total",
     type: "number",
-    step: "0.01", // 👈 permite decimales
+    step: "0.01",
     required: true,
     description: "Monto total de la factura en formato Decimal(10,2)",
   },
@@ -38,8 +24,24 @@ const facturaModel = {
     type: "text",
     maxLength: 30,
     required: true,
-    description: "Forma de pago (ej: efectivo, tarjeta, OS)",
+    description: "Forma de pago (ej: efectivo, tarjeta, transferencia)",
+  },
+  tipo_pago: {
+    label: "Tipo de pago",
+    type: "select",
+    options: ["Particular", "Obra Social"],
+    required: true,
+    description: "Indica si el pago es particular o mediante obra social",
+  },
+  nro_carnet: {
+    label: "Número de carnet de obra social",
+    type: "text",
+    maxLength: 20,
+    required: false, // 👈 se vuelve obligatorio solo si se elige Obra Social
+    description: "Número de carnet asociado a la obra social",
+    conditional: { field: "tipo_pago", value: "Obra Social" }, // 👈 regla condicional
   },
 };
 
 export default facturaModel;
+
