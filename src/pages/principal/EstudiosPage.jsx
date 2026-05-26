@@ -43,6 +43,7 @@ const EstudiosPage = () => {
   }
 
   const irACancelarTurno = () =>{
+    alert('En desarrollo: redirigiendo a CancelarTurnoPage')
     navigate('/cancelar-turno')
   }
 

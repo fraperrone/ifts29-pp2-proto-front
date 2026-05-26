@@ -1,23 +1,31 @@
-// generamos una pagina donde busque por dni y traiga los turnos de este dni y en cada fila una opcion para eliminar en caso de tocar abre un modal para confirmar eliminacion
-
 import React, { useState } from "react";
 import { Container, Form, Button, Table, Modal } from "react-bootstrap";
 import BotonCancelar from "../../components/buttons/BotonCancelar";
 
-const CancelarTurnoPage = ({ obtenerTurnosPorDni, eliminarTurno }) => {
+const CancelarTurnoPage = () => {
+  // Turnos de ejemplo en memoria
+  const turnosEjemplo = [
+    { id: 1, paciente: "Juan Pérez", dni: "12345678", fecha: "2026-05-21 09:00", estudio: "Radiografía" },
+    { id: 2, paciente: "María Gómez", dni: "23456789", fecha: "2026-05-22 11:30", estudio: "Ecografía" },
+    { id: 3, paciente: "Carlos López", dni: "34567890", fecha: "2026-05-23 15:00", estudio: "Resonancia" },
+    { id: 4, paciente: "Ana Fernández", dni: "45678901", fecha: "2026-05-24 08:45", estudio: "Análisis de sangre" },
+  ];
+
   const [dni, setDni] = useState("");
-  const [turnos, setTurnos] = useState([]);
+  const [turnos, setTurnos] = useState(turnosEjemplo);
   const [showEliminarModal, setShowEliminarModal] = useState(false);
   const [turnoSeleccionado, setTurnoSeleccionado] = useState(null);
 
-  const buscarTurnos = async () => {
-    const resultados = await obtenerTurnosPorDni(dni); // función que trae turnos desde backend
-    setTurnos(resultados);
+  const buscarTurnos = () => {
+    if (dni.trim() === "") {
+      setTurnos(turnosEjemplo); // si no se ingresa DNI, muestra todos
+    } else {
+      setTurnos(turnosEjemplo.filter(t => t.dni === dni));
+    }
   };
 
   const confirmarEliminar = () => {
     if (turnoSeleccionado) {
-      eliminarTurno(turnoSeleccionado.id); // función que elimina en backend
       setTurnos(turnos.filter(t => t.id !== turnoSeleccionado.id));
     }
     setShowEliminarModal(false);
@@ -43,6 +51,7 @@ const CancelarTurnoPage = ({ obtenerTurnosPorDni, eliminarTurno }) => {
         <thead>
           <tr>
             <th>Paciente</th>
+            <th>DNI</th>
             <th>Fecha</th>
             <th>Estudio</th>
             <th>Acciones</th>
@@ -52,6 +61,7 @@ const CancelarTurnoPage = ({ obtenerTurnosPorDni, eliminarTurno }) => {
           {turnos.map((t) => (
             <tr key={t.id}>
               <td>{t.paciente}</td>
+              <td>{t.dni}</td>
               <td>{t.fecha}</td>
               <td>{t.estudio}</td>
               <td>
@@ -81,6 +91,7 @@ const CancelarTurnoPage = ({ obtenerTurnosPorDni, eliminarTurno }) => {
           {turnoSeleccionado && (
             <ul>
               <li><strong>Paciente:</strong> {turnoSeleccionado.paciente}</li>
+              <li><strong>DNI:</strong> {turnoSeleccionado.dni}</li>
               <li><strong>Fecha:</strong> {turnoSeleccionado.fecha}</li>
               <li><strong>Estudio:</strong> {turnoSeleccionado.estudio}</li>
             </ul>
@@ -95,9 +106,11 @@ const CancelarTurnoPage = ({ obtenerTurnosPorDni, eliminarTurno }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <BotonCancelar></BotonCancelar>
+
+      <BotonCancelar />
     </Container>
   );
 };
 
 export default CancelarTurnoPage;
+
