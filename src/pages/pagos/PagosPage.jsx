@@ -16,6 +16,7 @@ const PagosPage = () => {
 
   const [formData, setFormData] = useState(defaultValues);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [showEmitiendoComprobanteModal, setShowEmitiendoComprobanteModal] = useState(false);
   const [showComprobanteModal, setShowComprobanteModal] = useState(false);
 
   const handleChange = (e) => {
@@ -32,11 +33,11 @@ const PagosPage = () => {
 
   const emitirComprobante = () => {
     setShowConfirmModal(false);
-    setShowComprobanteModal(true);
+    setShowEmitiendoComprobanteModal(true);
     // simulamos proceso de emisión
     setTimeout(() => {
-      alert("Comprobante emitido:\n" + JSON.stringify(formData, null, 2));
-      setShowComprobanteModal(false);
+      setShowEmitiendoComprobanteModal(false);
+      setShowComprobanteModal(true);
     }, 2000);
   };
 
@@ -123,12 +124,34 @@ const PagosPage = () => {
       </Modal>
 
       {/* Modal de emisión de comprobante */}
-      <Modal show={showComprobanteModal} centered backdrop="static" keyboard={false}>
+      <Modal show={showEmitiendoComprobanteModal} centered backdrop="static" keyboard={false}>
         <Modal.Body className="text-center">
           <h5>Emitiendo comprobante...</h5>
         </Modal.Body>
       </Modal>
+      {/* // modal de comprobante simulacion con datos */}
+      <Modal show={showComprobanteModal} centered backdrop="static" keyboard={false}>
+        <Modal.Header>
+          <Modal.Title>Comprobante de Pago</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p><strong>ID Paciente:</strong> {formData.id_paciente}</p>
+          <p><strong>Fecha:</strong> {formData.fecha}</p>
+          <p><strong>Monto:</strong> ${formData.monto}</p>
+          <p><strong>Medio de Pago:</strong> {formData.medio_pago}</p>
+          <p><strong>Tipo de Pago:</strong> {formData.tipo_pago}</p>
+          {formData.tipo_pago === "Obra Social" && (
+            <p><strong>Nro de Carnet:</strong> {formData.nro_carnet}</p>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => setShowComprobanteModal(false)}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
+
   );
 };
 
