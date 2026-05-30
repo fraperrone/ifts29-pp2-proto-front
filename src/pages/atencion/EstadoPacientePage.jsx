@@ -1,108 +1,102 @@
-
-
-// vamos a hacer una pagina para mostrar el estado del paciente, con un boton para actualizar el estado del paciente, que abra un modal para actualizar el estado del paciente, y otro boton para ingresar el paciente a la sala de espera, que abra otro modal para ingresar el paciente a la sala de espera, y otro boton para acreditar el paciente, que abra otro modal para acreditar el paciente
-import React from 'react'
-import { Container } from 'react-bootstrap'
-import { Button } from 'react-bootstrap'
-import { Modal } from 'react-bootstrap'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { Container, Table, Button, Modal, Form } from 'react-bootstrap'
 import BotonCancelar from '../../components/buttons/BotonCancelar'
-// import FormularioActualizarEstado from '../components/FormularioActualizarEstado'
-// import FormularioIngresarSalaEspera from '../components/FormularioIngresarSalaEspera'
-// import FormularioAcreditarPaciente from '../components/FormularioAcreditarPaciente'
+
 const EstadoPacientePage = () => {
-    // generamos los useState para controlar los modales
     const [showActualizarEstadoModal, setShowActualizarEstadoModal] = useState(false)
-    const [showIngresarSalaEsperaModal, setShowIngresarSalaEsperaModal] = useState(false)
-    const [showAcreditarPacienteModal, setShowAcreditarPacienteModal] = useState(false)
-
-
-    // simulamos datos de varios pacientes, con los siguientes campos: nombre, apellido, dni, estado, sala de espera, acreditado
-    const pacientes = [
+    const [pacienteSeleccionado, setPacienteSeleccionado] = useState(null)
+    const [nuevoEstado, setNuevoEstado] = useState("")
+    const [pacientes, setPacientes] = useState([
         {
             nombre: 'Juan',
             apellido: 'Perez',
             dni: '36400855',
             estado: 'En espera',
-            salaEspera: 'Sala 1',
-            acreditado: false
+            tipoEstudio: 'Radiografía'
         },
         {
             nombre: 'María',
             apellido: 'González',
             dni: '37123456',
-            estado: 'En tratamiento',
-            salaEspera: 'Sala 2',
-            acreditado: true
+            estado: 'En espera',
+            tipoEstudio: 'Laboratorio'
         }
-    ]
+    ])
+
+    // simulamos datos de pacientes en sala de espera
 
 
     return (
         <Container className="m-5 p-5 bg-light rounded shadow">
-            <h1>Estado del paciente</h1>
-            {/* mostramos una tabla con el estado del paciente, con los siguientes campos: nombre, apellido, dni, estado, sala de espera, acreditado */}
-            <table className="table">
+            <h1>Pacientes en sala de espera</h1>
+
+            <Table striped bordered hover>
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>DNI</th>
                         <th>Estado</th>
-                        <th>Sala de espera</th>
-                        <th>Acreditado</th>
+                        <th>Tipo de estudio</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {pacientes.map((paciente, index) => (
-                        <tr key={index}>
-                            <td>{paciente.nombre}</td>
-                            <td>{paciente.apellido}</td>
-                            <td>{paciente.dni}</td>
-                            <td>{paciente.estado}</td>
-                            <td>{paciente.salaEspera}</td>
-                            <td>{paciente.acreditado ? 'Sí' : 'No'}</td>
+                    {pacientes.map((p, idx) => (
+                        <tr key={idx}>
+                            <td>{p.nombre}</td>
+                            <td>{p.apellido}</td>
+                            <td>{p.dni}</td>
+                            <td>{p.estado}</td>
+                            <td>{p.tipoEstudio}</td>
+                            <td>
+                                <Button
+                                    variant="warning"
+                                    size="sm"
+                                    onClick={() => {
+                                        setPacienteSeleccionado(p)
+                                        setShowActualizarEstadoModal(true)
+                                    }}
+                                >
+                                    Actualizar estado
+                                </Button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
-            </table>
+            </Table>
 
-
-            {/* <Button variant="warning" onClick={() => setShowActualizarEstadoModal(true)}>
-                Actualizar estado del paciente
-            </Button>
-            <Button variant="info" onClick={() => setShowIngresarSalaEsperaModal(true)}>
-                Ingresar paciente a sala de espera
-            </Button>
-            <Button variant="primary" onClick={() => setShowAcreditarPacienteModal(true)}>
-                Acreditar paciente
-            </Button> */}
-            {/* <Modal show={showActualizarEstadoModal} onHide={() => setShowActualizarEstadoModal(false)}>
+            {/* Modal Actualizar Estado */}
+            <Modal show={showActualizarEstadoModal} onHide={() => setShowActualizarEstadoModal(false)} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>Actualizar estado del paciente</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <FormularioActualizarEstado />
+                    {pacienteSeleccionado && (
+                        <p>
+                            Actualizar estado de <strong>{pacienteSeleccionado.nombre} {pacienteSeleccionado.apellido}</strong> (DNI {pacienteSeleccionado.dni})
+                        </p>
+                    )}
+                    <Form.Select value={nuevoEstado} onChange={(e) => setNuevoEstado(e.target.value)}>
+                        <option value="">Seleccione nuevo estado</option>
+                        <option value="En espera">En espera</option>
+                        <option value="En atención">En atención</option>
+                        <option value="Finalizado">Finalizado</option>
+                    </Form.Select>
                 </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowActualizarEstadoModal(false)}>Cancelar</Button>
+                    <Button variant="primary" onClick={() => {
+                        // Aquí iría la lógica para actualizar el estado en backend
+                        pacienteSeleccionado.estado = nuevoEstado // Simulamos actualización
+                        alert(`Estado actualizado a "${nuevoEstado}" para ${pacienteSeleccionado?.nombre}`)
+                        setShowActualizarEstadoModal(false)
+                    }}>
+                        Guardar
+                    </Button>
+                </Modal.Footer>
             </Modal>
-            <Modal show={showIngresarSalaEsperaModal} onHide={() => setShowIngresarSalaEsperaModal(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Ingresar paciente a sala de espera</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <FormularioIngresarSalaEspera />
-                </Modal.Body>
-            </Modal>
-            <Modal show={showAcreditarPacienteModal} onHide={() => setShowAcreditarPacienteModal(false)}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Acreditar paciente</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <FormularioAcreditarPaciente />
-                </Modal.Body>
-            </Modal> */}
 
-            {/* boton cancelar */}
             <BotonCancelar />
         </Container>
     )
