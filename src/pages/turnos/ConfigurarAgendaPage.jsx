@@ -1,6 +1,4 @@
-// vams a hacer pagina para configurar agenda de turnos
-
-
+// ConfigurarAgendaPage.jsx
 import React, { useState } from "react";
 import { Container, Form, Button, Table } from "react-bootstrap";
 
@@ -9,7 +7,14 @@ const ConfigurarAgendaPage = () => {
   const [horaInicio, setHoraInicio] = useState("");
   const [horaFin, setHoraFin] = useState("");
   const [estudio, setEstudio] = useState("");
-  const [disponibilidades, setDisponibilidades] = useState([]);
+
+  // Estado inicial con turnos ya configurados
+  const [disponibilidades, setDisponibilidades] = useState([
+    { dia: "2026-06-01", horaInicio: "09:00", horaFin: "10:00", estudio: "Laboratorio" },
+    { dia: "2026-06-01", horaInicio: "10:00", horaFin: "11:00", estudio: "Radiografía" },
+    { dia: "2026-06-02", horaInicio: "14:00", horaFin: "15:00", estudio: "Ecografía" },
+    { dia: "2026-06-03", horaInicio: "16:00", horaFin: "17:00", estudio: "Resonancia" }
+  ]);
 
   const estudiosDisponibles = ["Laboratorio", "Radiografía", "Ecografía", "Resonancia"];
 

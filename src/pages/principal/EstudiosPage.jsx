@@ -59,6 +59,10 @@ const EstudiosPage = () => {
     navigate('/registrar-resultado')
   }
 
+  const irAResultadoEstudio = () =>{
+    navigate('/resultado-estudio')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -96,6 +100,9 @@ const EstudiosPage = () => {
               </button> */}
               <button className="btn btn-warning m-2" onClick={irAEstadoPaciente}>
                 Actualizar estado del paciente
+              </button>
+              <button className="btn btn-danger m-2" onClick={irAResultadoEstudio}>
+                Resultados de estudios
               </button>
             </Card.Body>
           </Card>
