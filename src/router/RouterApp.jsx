@@ -17,6 +17,7 @@ import ConfigurarAgendaPage from '../pages/turnos/ConfigurarAgendaPage'
 import RealizacionEstudioPage from '../pages/estudios/RealizacionEstudioPage'
 import ResultadoEstudioPage from '../pages/historia-clinica/RegistrarResultadoPage'
 import ResultadoEstudioPage2 from '../pages/estudios/ResultadoEstudioPage'
+import CambiarContrasenaPage from '../pages/login/CambiarContrasenaPage'
 // generamos rutas protegias y de logueo
 const RouterApp = () => {
   return (
@@ -46,6 +47,7 @@ const RouterApp = () => {
           <Route path='/realizacion-estudio' element= {<RealizacionEstudioPage />} />
           <Route path='/registrar-resultado' element= {<ResultadoEstudioPage />} />
           <Route path= '/resultado-estudio' element= {<ResultadoEstudioPage2 />} />
+          <Route path='/cambiar-contrasena' element={<CambiarContrasenaPage />} />
         </Route>
       </Routes>
     </Router>

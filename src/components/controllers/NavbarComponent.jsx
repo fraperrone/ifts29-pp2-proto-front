@@ -35,8 +35,9 @@ const NavbarComponent = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/estudios">Estudios de Laboratorio</Nav.Link>
-            <Nav.Link href="/consultorios" disabled>Consultorios Externos (no disponible)</Nav.Link>
+            <Nav.Link onClick={() => navigate("/estudios")}>Estudios de Laboratorio</Nav.Link>
+            <Nav.Link onClick={() => navigate("/consultorios")} disabled>Consultorios Externos (no disponible)</Nav.Link>
+            <Nav.Link onClick={() => navigate("/cambiar-contrasena")}>Cambiar contraseña</Nav.Link>
             <Nav.Link onClick={cerrarSesion}>Cerrar sesión</Nav.Link>
           </Nav>
           {/* Mostrar rol actual */}
