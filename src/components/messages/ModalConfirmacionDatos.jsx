@@ -24,7 +24,7 @@ const ModalConfirmacionDatos = ({ show, handleClose, datos }) => {
                 if (shouldSucceed) {
                     resolve("Operación exitosa");
                 } else {
-                    reject(new Error("Hubo un error en la operación"));
+                    reject(new Error("Paciente ya registrado"));
                 }
             }, 1500); // simula 1.5 segundos de espera
         });

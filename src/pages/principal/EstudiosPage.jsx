@@ -168,7 +168,7 @@ const EstudiosPage = () => {
         Registrar información clínica
         Consultar historia clínica */}
 
-          <Card className="my-5">
+          {/* <Card className="my-5">
             <Card.Header>Historia Clínica</Card.Header>
             <Card.Body>
               <button className="btn btn-primary m-2">
@@ -178,7 +178,7 @@ const EstudiosPage = () => {
                 Consultar historia clínica
               </button>
             </Card.Body>
-          </Card>
+          </Card> */}
         </div>
       )}
 

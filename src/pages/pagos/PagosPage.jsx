@@ -148,6 +148,9 @@ const PagosPage = () => {
           <Button variant="primary" onClick={() => setShowComprobanteModal(false)}>
             Cerrar
           </Button>
+          <Button variant="secondary" onClick={() => setShowComprobanteModal(false)}>
+            Imprimir
+          </Button>
         </Modal.Footer>
       </Modal>
     </Container>
