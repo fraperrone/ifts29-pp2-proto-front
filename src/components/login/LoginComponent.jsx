@@ -11,7 +11,7 @@ import MessageComponent from '../messages/MessageComponent'
 const LoginComponent = () => {
   //usamos navigate
   //genemaos los use state del formulario - dejamos valores predeterminados
-  const [email, setEmail] = React.useState('admin@example.com')
+  const [email, setEmail] = React.useState('juanperez@administrativo.com')
   const [password, setPassword] = React.useState('password')
   const [message, setMessage] = React.useState('')
 
@@ -21,12 +21,14 @@ const LoginComponent = () => {
     e.preventDefault();
 
     // aquí iría la lógica de autenticación real
-    if (email === "admin@example.com" && password === "password") {
+    if (email === "juanperez@administrativo.com" && password === "password") {
       localStorage.setItem("token", "1234567890");
-      localStorage.setItem("rol", "admin");
-    } else if (email === "medico@example.com" && password === "password") {
+      localStorage.setItem("rol", "administrativo");
+      localStorage.setItem("nombre", "Juan Pérez");
+    } else if (email === "mariagonzalez@medico.com" && password === "password") {
       localStorage.setItem("token", "0987654321");
       localStorage.setItem("rol", "medico");
+      localStorage.setItem("nombre", "María González");
     } else {
       // credenciales incorrectas
       setMessage("Credenciales incorrectas");

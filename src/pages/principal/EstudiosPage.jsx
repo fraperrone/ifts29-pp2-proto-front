@@ -88,7 +88,7 @@ const EstudiosPage = () => {
       </div> */}
 
       {/* generamos bloque para administrativo para las tarjetas */}
-      {(rol === 'admin' || rol === 'superusuario') && (
+      {(rol === 'administrativo' || rol === 'superusuario') && (
         <div>
           <Card className="my-5">
             <Card.Header>Atención</Card.Header>
