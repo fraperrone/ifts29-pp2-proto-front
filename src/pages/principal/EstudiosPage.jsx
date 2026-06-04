@@ -63,6 +63,10 @@ const EstudiosPage = () => {
     navigate('/resultado-estudio')
   }
 
+  const irARegistrarUsoInsumo = () => {
+    navigate('/registrar-uso-insumo')
+  }
+
   return (
     <Container className="m-5 p-5 bg-light rounded shadow">
       <h1>Estudios de Laboratorio</h1>
@@ -158,8 +162,8 @@ const EstudiosPage = () => {
               <button className="btn btn-secondary m-2" onClick={irARegistrarResultado}>
                 Registrar resultado del estudio
               </button>
-              <button className="btn btn-info m-2">
-                Asociar insumos a estudio
+              <button className="btn btn-info m-2" onClick={irARegistrarUsoInsumo}>
+                Registrar insumos a utilizados
               </button>
             </Card.Body>
           </Card>
